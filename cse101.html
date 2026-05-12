@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nakul Sahadev Academy - Excellence in Education</title>
+    
+    <style>
+        /* ===== Global Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        /* ===== Header and Navigation ===== */
+        header {
+            background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .school-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffcc00;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== Mobile Menu Button ===== */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== Home Section with Hero Banner ===== */
+        .home {
+            background: linear-gradient(135deg, #0066cc 0%, #004a99 50%, #003d7a 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .home::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 204, 0, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .home-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .home h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: slideInDown 0.8s ease;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #ffcc00;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .home p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .banner-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-btn, .enroll-btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-btn {
+            background-color: #ffcc00;
+            color: #0066cc;
+        }
+
+        .welcome-btn:hover {
+            background-color: #ff9900;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
+        }
+
+        .enroll-btn {
+            background-color: transparent;
+            color: white;
+            border: 2px solid #ffcc00;
+        }
+
+        .enroll-btn:hover {
+            background-color: #ffcc00;
+            color: #0066cc;
+            transform: translateY(-3px);
+        }
+
+        .banner-image {
+            width: 100%;
+            max-width: 700px;
+            margin-top: 2rem;
+            height: 350px;
+            background: linear-gradient(135deg, #00e5ff, #00bcd4);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== Highlights Section ===== */
+        .highlights {
+            background-color: white;
+            padding: 3rem 2rem;
+        }
+
+        .highlights-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 102, 204, 0.3);
+        }
+
+        .highlight-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .highlight-card p {
+            font-size: 0.95rem;
+        }
+
+        /* ===== General Section Styles ===== */
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #0066cc;
+            margin-bottom: 2rem;
+            border-bottom: 4px solid #ffcc00;
+            padding-bottom: 1rem;
+            display: inline-block;
+            width: 100%;
+        }
+
+        /* ===== Features Section ===== */
+        .features {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #0066cc;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.2);
+            transform: translateX(5px);
+        }
+
+        .feature-item h3 {
+            color: #0066cc;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ===== About Section ===== */
+        .about {
+            background-color: white;
+        }
+
+        .about-content {
+            background-color: #f0f8ff;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #0066cc;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* ===== Achievements Section ===== */
+        .achievements {
+            background: linear-gradient(135deg, #fff8e1 0%, #fff3e0 100%);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .achievement-box {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .achievement-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.3);
+        }
+
+        .achievement-number {
+            font-size: 2.5rem;
+            color: #ff9900;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-box h3 {
+            color: #0066cc;
+            font-size: 1.1rem;
+        }
+
+        /* ===== Courses Section ===== */
+        .courses {
+            background-color: #f9f9f9;
+        }
+
+        .courses-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .course-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #0066cc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 204, 0, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-card:hover::before {
+            left: 100%;
+        }
+
+        .course-card h3 {
+            color: #0066cc;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .course-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .course-badge {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #0066cc;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        /* ===== Contact Section ===== */
+        .contact {
+            background-color: white;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid #0066cc;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #0066cc;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #0066cc, #004a99);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.4);
+        }
+
+        .error-message {
+            color: #d32f2f;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        .success-message {
+            color: #4caf50;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        /* ===== Testimonials Section ===== */
+        .testimonials {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #ffcc00;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .stars {
+            color: #ffcc00;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: #ffcc00;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #00bcd4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #ffcc00;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 2rem;
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu-toggle {
+                display: block;
+                align-self: flex-end;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .home h1 {
+                font-size: 2rem;
+            }
+
+            .home p {
+                font-size: 1rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .banner-image {
+                height: 250px;
+                font-size: 2rem;
+            }
+
+            .courses-container, .features-grid, .testimonials-container, .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .banner-buttons {
+                flex-direction: column;
+            }
+
+            .welcome-btn, .enroll-btn {
+                width: 100%;
+            }
+
+            .footer-info {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .school-name {
+                font-size: 1.3rem;
+            }
+
+            .home h1 {
+                font-size: 1.5rem;
+            }
+
+            .home p {
+                font-size: 0.95rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .welcome-btn, .enroll-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            section h2 {
+                font-size: 1.3rem;
+            }
+
+            .banner-image {
+                height: 200px;
+                font-size: 1.5rem;
+            }
+
+            .home::before {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER WITH NAVIGATION ===== -->
+    <header>
+        <div class="header-container">
+            <div class="school-name">🎓 Nakul Sahadev Academy</div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HOME SECTION WITH HERO BANNER ===== -->
+    <section id="home" class="home">
+        <div class="home-content">
+            <h1>Welcome to Nakul Sahadev Academy</h1>
+            <p class="tagline">Excellence in Education • Innovation in Learning</p>
+            <p>Empowering students to achieve their dreams with world-class education, expert mentoring, and modern learning facilities.</p>
+            <div class="banner-buttons">
+                <button class="welcome-btn" id="welcomeBtn">🎉 Get Started Now</button>
+                <button class="enroll-btn" id="enrollBtn">📝 Enroll Today</button>
+            </div>
+            <div class="banner-image">🚀 Excellence Hub 🎓</div>
+        </div>
+    </section>
+
+    <!-- ===== HIGHLIGHTS SECTION ===== -->
+    <section class="highlights">
+        <div class="highlights-container">
+            <div class="highlight-card">
+                <div class="highlight-icon">🏆</div>
+                <h3>Award Winning</h3>
+                <p>Recognized nationally for academic excellence and student achievements</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">👨‍🏫</div>
+                <h3>Expert Teachers</h3>
+                <p>Highly qualified and experienced educators dedicated to student success</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">💻</div>
+                <h3>Modern Labs</h3>
+                <p>State-of-the-art technology and science laboratories for hands-on learning</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🌍</div>
+                <h3>Global Standards</h3>
+                <p>International curriculum and exposure to global learning practices</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES SECTION ===== -->
+    <section id="features" class="features">
+        <h2>Why Choose Us?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>📱 Digital Learning Platform</h3>
+                <p>Access to online classes, digital resources, and interactive learning materials available 24/7 for enhanced education.</p>
+            </div>
+            <div class="feature-item">
+                <h3>🎯 Personalized Coaching</h3>
+                <p>One-on-one mentoring and personalized study plans tailored to each student's learning pace and goals.</p>
+            </div>
+            <div class="feature-item">
+                <h3>🏃 Sports & Activities</h3>
+                <p>Comprehensive sports programs, clubs, and extracurricular activities for holistic development of students.</p>
+            </div>
+            <div class="feature-item">
+                <h3>🎨 Arts & Culture</h3>
+                <p>Dedicated programs for music, dance, drama, and visual arts to nurture creative talents in students.</p>
+            </div>
+            <div class="feature-item">
+                <h3>💼 Career Guidance</h3>
+                <p>Professional career counseling, aptitude tests, and guidance for college and career planning.</p>
+            </div>
+            <div class="feature-item">
+                <h3>🤝 Parent Portal</h3>
+                <p>Real-time access to student performance, attendance, and communication with teachers through our mobile app.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ACHIEVEMENTS SECTION ===== -->
+    <section id="achievements" class="achievements">
+        <h2>Our Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-box">
+                <div class="achievement-number">98%</div>
+                <h3>Pass Rate</h3>
+                <p>Consistent excellence in board exams</p>
+            </div>
+            <div class="achievement-box">
+                <div class="achievement-number">500+</div>
+                <h3>Students</h3>
+                <p>Growing community of learners</p>
+            </div>
+            <div class="achievement-box">
+                <div class="achievement-number">50+</div>
+                <h3>Scholars</h3>
+                <p>Students awarded scholarships annually</p>
+            </div>
+            <div class="achievement-box">
+                <div class="achievement-number">15+</div>
+                <h3>Years</h3>
+                <p>Of Excellence in Education</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="about">
+        <h2>About Our Academy</h2>
+        <div class="about-content">
+            <p>
+                <strong>Nakul Sahadev Academy</strong> is a premier educational institution committed to providing exceptional education 
+                and fostering the development of well-rounded individuals. With a legacy of over 15 years, we have established ourselves 
+                as a leader in academic excellence and student development.
+            </p>
+            <p>
+                Our mission is to empower students with knowledge, skills, values, and confidence to succeed in a rapidly evolving world. 
+                We believe in combining traditional teaching methods with cutting-edge technology to create an engaging and effective 
+                learning environment.
+            </p>
+            <p>
+                With experienced faculty, modern infrastructure, innovative teaching methodologies, and a student-centric approach, 
+                we create an ecosystem where every student can learn, grow, and achieve their full potential. Our commitment to excellence 
+                has made us one of the most trusted educational institutions in the region.
+            </p>
+            <p>
+                We welcome you to join the Nakul Sahadev Academy family and embark on a transformative journey of learning, growth, 
+                and success!
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== COURSES SECTION ===== -->
+    <section id="courses" class="courses">
+        <h2>Our Courses</h2>
+        <div class="courses-container">
+            <!-- Course 1 -->
+            <div class="course-card">
+                <h3>📖 Mathematics</h3>
+                <p>
+                    Master advanced mathematical concepts from algebra and geometry to calculus. Our expert mathematicians 
+                    develop problem-solving skills and logical thinking essential for competitive exams.
+                </p>
+                <span class="course-badge">Beginner to Advanced</span>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="course-card">
+                <h3>🔬 Science & Lab</h3>
+                <p>
+                    Comprehensive science education covering Physics, Chemistry, and Biology with hands-on experiments. 
+                    Access to modern laboratories for practical learning and real-world applications.
+                </p>
+                <span class="course-badge">Practical Learning</span>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="course-card">
+                <h3>📚 English & Literature</h3>
+                <p>
+                    Develop strong communication, writing, and literary skills. Explore classic and contemporary literature, 
+                    enhance vocabulary, and master grammar with interactive sessions.
+                </p>
+                <span class="course-badge">Communication Skills</span>
+            </div>
+
+            <!-- Course 4 -->
+            <div class="course-card">
+                <h3>🌍 Social Studies</h3>
+                <p>
+                    Understand history, geography, and social sciences. Explore diverse cultures, geopolitical concepts, 
+                    and develop critical thinking about contemporary global issues.
+                </p>
+                <span class="course-badge">Global Awareness</span>
+            </div>
+
+            <!-- Course 5 -->
+            <div class="course-card">
+                <h3>💻 Information Technology</h3>
+                <p>
+                    Learn essential coding, web development, and IT skills. From Python to web design, prepare for the 
+                    digital revolution and build a career in tech.
+                </p>
+                <span class="course-badge">Future Skills</span>
+            </div>
+
+            <!-- Course 6 -->
+            <div class="course-card">
+                <h3>🎨 Arts & Creativity</h3>
+                <p>
+                    Express yourself through art, music, and creative pursuits. Develop artistic skills, explore various 
+                    art forms, and discover your unique creative talents.
+                </p>
+                <span class="course-badge">Creative Expression</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <section id="testimonials" class="testimonials">
+        <h2>Student Testimonials</h2>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">
+                    "Nakul Sahadev Academy transformed my academic journey. The personalized coaching and supportive environment 
+                    helped me score 95% in my board exams. Highly recommended!"
+                </p>
+                <p class="testimonial-author">- Arjun Sharma</p>
+                <p class="testimonial-role">Class 12 Student (2025)</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">
+                    "The teachers here are amazing and truly care about student success. The digital learning platform is 
+                    fantastic, and the sports program helped me develop as a well-rounded person."
+                </p>
+                <p class="testimonial-author">- Priya Verma</p>
+                <p class="testimonial-role">Class 10 Student (2024)</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">
+                    "The IT and coding courses at Nakul Sahadev Academy are world-class. I got selected for an internship 
+                    at a top tech company. The academy truly prepares you for the future!"
+                </p>
+                <p class="testimonial-author">- Rahul Patel</p>
+                <p class="testimonial-role">IT Course Alumnus</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="contact">
+        <h2>Enroll Now & Join Us</h2>
+        <div class="contact-container">
+            <form id="contactForm">
+                <!-- Name Field -->
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name">
+                    <div class="error-message" id="nameError"></div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <div class="error-message" id="emailError"></div>
+                </div>
+
+                <!-- Phone Field -->
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    <div class="error-message" id="phoneError"></div>
+                </div>
+
+                <!-- Course Selection -->
+                <div class="form-group">
+                    <label for="course">Select Course:</label>
+                    <select id="course" name="course">
+                        <option value="">-- Choose a Course --</option>
+                        <option value="mathematics">Mathematics</option>
+                        <option value="science">Science & Lab</option>
+                        <option value="english">English & Literature</option>
+                        <option value="social-studies">Social Studies</option>
+                        <option value="it">Information Technology</option>
+                        <option value="arts">Arts & Creativity</option>
+                    </select>
+                    <div class="error-message" id="courseError"></div>
+                </div>
+
+                <!-- Message Field -->
+                <div class="form-group">
+                    <label for="message">Message (Optional):</label>
+                    <textarea id="message" name="message" placeholder="Tell us why you want to join..."></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">🚀 Submit Enrollment</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-section">
+                    <h3>🎓 About Academy</h3>
+                    <p>Nakul Sahadev Academy - Excellence in Education Since 2011. Empowering students for a brighter future.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>📍 Location</h3>
+                    <p>123 Education Street</p>
+                    <p>Knowledge City, State 560001</p>
+                    <p>📞 +91-XXXX-XXXX-XX</p>
+                </div>
+                <div class="footer-section">
+                    <h3>⏰ Hours</h3>
+                    <p>Monday - Friday: 7:00 AM - 5:00 PM</p>
+                    <p>Saturday: 8:00 AM - 2:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+                <div class="footer-section">
+                    <h3>🔗 Quick Links</h3>
+                    <a href="#home">Home</a><br>
+                    <a href="#courses">Courses</a><br>
+                    <a href="#contact">Enrollment</a><br>
+                    <a href="#testimonials">Testimonials</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nakul Sahadev Academy. All rights reserved. | Excellence • Innovation • Growth</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Privacy Policy | Terms & Conditions</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== MOBILE MENU TOGGLE =====
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+
+        menuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+        });
+
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('active');
+            });
+        });
+
+        // ===== WELCOME BUTTON =====
+        const welcomeBtn = document.getElementById('welcomeBtn');
+        welcomeBtn.addEventListener('click', function() {
+            alert('🎉 Welcome to Nakul Sahadev Academy!\n\n✨ Excellence in Education\n🚀 Innovation in Learning\n💡 Empowering Your Future\n\nJoin us today and unlock your potential!');
+        });
+
+        // ===== ENROLL BUTTON =====
+        const enrollBtn = document.getElementById('enrollBtn');
+        enrollBtn.addEventListener('click', function() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // ===== FORM VALIDATION =====
+        const contactForm = document.getElementById('contactForm');
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidPhone(phone) {
+            const phoneRegex = /^[0-9]{10}$/;
+            return phoneRegex.test(phone.replace(/[-\s]/g, ''));
+        }
+
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const courseInput = document.getElementById('course');
+        const messageInput = document.getElementById('message');
+
+        nameInput.addEventListener('input', function() {
+            document.getElementById('nameError').textContent = '';
+        });
+
+        emailInput.addEventListener('input', function() {
+            document.getElementById('emailError').textContent = '';
+        });
+
+        phoneInput.addEventListener('input', function() {
+            document.getElementById('phoneError').textContent = '';
+        });
+
+        courseInput.addEventListener('change', function() {
+            document.getElementById('courseError').textContent = '';
+        });
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('phoneError').textContent = '';
+            document.getElementById('courseError').textContent = '';
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const phone = phoneInput.value.trim();
+            const course = courseInput.value.trim();
+            const message = messageInput.value.trim();
+
+            let isValid = true;
+
+            if (name === '') {
+                document.getElementById('nameError').textContent = '❌ Please enter your name';
+                isValid = false;
+            }
+
+            if (email === '') {
+                document.getElementById('emailError').textContent = '❌ Please enter your email';
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                document.getElementById('emailError').textContent = '❌ Please enter a valid email address';
+                isValid = false;
+            }
+
+            if (phone === '') {
+                document.getElementById('phoneError').textContent = '❌ Please enter your phone number';
+                isValid = false;
+            } else if (!isValidPhone(phone)) {
+                document.getElementById('phoneError').textContent = '❌ Please enter a valid 10-digit phone number';
+                isValid = false;
+            }
+
+            if (course === '') {
+                document.getElementById('courseError').textContent = '❌ Please select a course';
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert('✅ Enrollment Successful!\n\nThank you for your interest in Nakul Sahadev Academy!\n\nName: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nCourse: ' + course + '\n\nWe will contact you soon with further details!');
+                contactForm.reset();
+            }
+        });
+    </script>
+</body>
+</html>
